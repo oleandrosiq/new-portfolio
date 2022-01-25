@@ -20,6 +20,7 @@ const Styles = globalCss({
     '--orange': '#e39264',
     '--red': '#d25a61',
     '--blue': '#3b82f6',
+    '--aa': '#17aae7',
     '--green': '#61faa9',
 
     '--border': '#31313c',

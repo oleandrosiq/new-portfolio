@@ -1,6 +1,13 @@
-import { Container, Header, Main, Footer } from './styles';
+import { useRef } from 'react';
+import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
+import { MainModal, ModalHandles } from '../../components/MainModal';
+
+import { Container, Header, Main, ButtonContact, Footer, ContentModal } from './styles';
 
 export function Bio() { // Gerar pagina estatica 
+  const modalRef = useRef<ModalHandles>(null);
+
   return (
     <Container>
       <Header>
@@ -12,7 +19,7 @@ export function Bio() { // Gerar pagina estatica
         <h1>Leandro Siqueira</h1>
         <p>
           ⚡ Desenvolvedor Front-End <br />
-          ⚛️ Javascript • React • Typescript • NextJs
+          ⚛️ Javascript • React • Typescript • NextJs • NodeJS
         </p>
       </Header>
       <Main>
@@ -26,6 +33,26 @@ export function Bio() { // Gerar pagina estatica
           Github
         </a>
       </Main>
+      <ButtonContact type='button' onClick={() => modalRef.current?.openModal()}>
+        Entrar em contato
+      </ButtonContact>
+      <Footer>
+        <p>Developed by <a href='https://www.instagram.com/oleandrosiq/' target='_blank'>@oleandrosiq</a></p>
+      </Footer>
+      <MainModal
+        ref={modalRef}
+        titleModal='Entrar em contato'
+      >
+        <ContentModal>
+          <Input placeholder='Nome' />
+          <Input placeholder='E-mail' />
+          <Input placeholder='Celular' />
+
+          <Button 
+            textButton='Enviar'
+          />
+        </ContentModal>
+      </MainModal>
     </Container>
   );
 }

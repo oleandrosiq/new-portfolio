@@ -35,7 +35,7 @@ export const Header = styled('header', {
 export const Main = styled('main', {
   width: '100%',
   maxWidth: '54rem',
-  margin: '3rem auto',
+  margin: '3rem auto 2rem',
 
   padding: '0 2rem',
 
@@ -78,8 +78,55 @@ export const Main = styled('main', {
   }
 });
 
+export const ButtonContact = styled('button', {
+  width: '100%',
+  height: '5rem',
+  marginBottom: '5rem',
+
+  border: '0',
+  borderRadius: '0.5rem',
+  background: 'linear-gradient(to right, #1956b6, #17aae7)',
+
+  fontSize: '1.6rem',
+  color: 'var(--white)',
+
+  transition: '0.2s ease-in-out',
+
+  '&:hover': {
+    filter: 'brightness(0.8)',
+  }
+});
+
 export const Footer = styled('footer', {
   width: '100%',
   maxWidth: '50rem',
-  margin: '0 auto',
+  margin: '0 auto 2rem',
+
+  textAlign: 'center',
+
+  '> p': {
+    fontSize: '1.8rem',
+    opacity: '0.6',
+
+    transition: '0.2s ease-in-out',
+
+    '&:hover': {
+      opacity: '1',
+    }
+  },
+
+  'a': {
+    fontSize: '2rem',
+    color: '#048f95'
+  }
+});
+
+export const ContentModal = styled('div', {
+  width: '100%',
+  height: '100%',
+  marginTop: '3.5rem',
+
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2rem'
 });
