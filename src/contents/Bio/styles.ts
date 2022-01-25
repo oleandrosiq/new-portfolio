@@ -37,8 +37,6 @@ export const Main = styled('main', {
   maxWidth: '54rem',
   margin: '3rem auto 2rem',
 
-  padding: '0 2rem',
-
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gap: '2rem',
