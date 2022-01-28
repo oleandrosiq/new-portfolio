@@ -3,19 +3,19 @@ import { FieldError } from 'react-hook-form';
 
 import { Container } from './styles';
 
-interface InputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   error?: FieldError;
 }
 
-function InputBase({ placeholder = '', error, ...rest }: InputBaseProps, ref) {
+function TextAreaBase({ placeholder, error, ...rest }: TextAreaProps, ref) {
   return (
     <Container 
-      {...rest}
       ref={ref}
+      {...rest}
       variant={!!error ? 'error' : null}
       placeholder={!!error ? error.message : placeholder}
     />
   );
 }
 
-export const Input = forwardRef<HTMLInputElement, InputBaseProps>(InputBase);
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(TextAreaBase);

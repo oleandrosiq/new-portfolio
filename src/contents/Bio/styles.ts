@@ -119,7 +119,7 @@ export const Footer = styled('footer', {
   }
 });
 
-export const ContentModal = styled('div', {
+export const ContentModal = styled('form', {
   width: '100%',
   height: '100%',
   marginTop: '3.5rem',

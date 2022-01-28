@@ -1,4 +1,3 @@
-import { CSSProperties } from '@stitches/react';
 import { styled } from '../../styles/styled';
 
 export const Container = styled('button', {
@@ -11,11 +10,10 @@ export const Container = styled('button', {
   color: 'var(--white)',
   fontSize: '1.5rem',
 
-  transition: '0.2s ease-in-out',
+  transition: 'background 0.2s ease-in-out',
 
   '&:hover': {
-    background: 'var(--background-button-hover)',
     borderColor: 'var(--border-light)',
+    opacity: '0.8',
   },
-
 });

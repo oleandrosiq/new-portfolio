@@ -5,6 +5,7 @@ import { Container, Overlay, Content, ButtonCloseModal } from './styles';
 
 export interface ModalHandles {
   openModal: () => void;
+  closeModal: () => void;
 }
 
 interface MainModalProps extends HTMLAttributes<HTMLDivElement> {
@@ -25,6 +26,7 @@ function MainModalBase({ titleModal, children }: MainModalProps, ref) {
   useImperativeHandle(ref, () => {
     return {
       openModal: handleOpenModal,
+      closeModal: handleCloseModal,
     }
   });
 

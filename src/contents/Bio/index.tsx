@@ -1,12 +1,34 @@
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
+
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { MainModal, ModalHandles } from '../../components/MainModal';
+import { TextArea } from '../../components/TextArea';
 
 import { Container, Header, Main, ButtonContact, Footer, ContentModal } from './styles';
 
+const schema = yup.object().shape({
+  name: yup.string().required('O nome é obrigatório'),
+  email: yup.string().email('Email inválido').required('O email é obrigatório'),
+  phone: yup.string().required('O telefone é obrigatório'),
+  message: yup.string().required('A mensagem é obrigatória'),
+});
+
 export function Bio() { // Gerar pagina estatica 
   const modalRef = useRef<ModalHandles>(null);
+
+  const { register, handleSubmit, clearErrors, reset, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const handleSubmitForm: SubmitHandler<any> = useCallback((values) => {
+    console.log({ values });
+    modalRef.current?.closeModal();
+  }, []);
 
   return (
     <Container>
@@ -43,13 +65,43 @@ export function Bio() { // Gerar pagina estatica
         ref={modalRef}
         titleModal='Entrar em contato'
       >
-        <ContentModal>
-          <Input placeholder='Nome' />
-          <Input placeholder='E-mail' />
-          <Input placeholder='Celular' />
+        <ContentModal onSubmit={handleSubmit(handleSubmitForm)}>
+          <Input 
+            placeholder='Nome' 
+            {...register('name')}
+            error={errors.name} 
+            onClick={() => clearErrors('name')}
+          />
+
+          <Input 
+            type='email' 
+            placeholder='E-mail' 
+            {...register('email')}
+            error={errors.email} 
+            onClick={() => clearErrors('email')}
+          />
+          <Input 
+            placeholder='Celular' 
+            {...register('phone')}
+            error={errors.phone} 
+            onClick={() => clearErrors('phone')}  
+          />
+
+          <TextArea 
+            placeholder='Mensagem' 
+            {...register('message')}
+            error={errors.message} 
+            onClick={() => clearErrors('message')} 
+          />
 
           <Button 
+            type='submit'
             textButton='Enviar'
+            style={{ 
+              height: '5rem', 
+              background: '#E63462',
+              transition: '0.2s ease-in-out',
+            }}
           />
         </ContentModal>
       </MainModal>
