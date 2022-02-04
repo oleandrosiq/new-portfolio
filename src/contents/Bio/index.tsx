@@ -10,6 +10,7 @@ import { MainModal, ModalHandles } from '../../components/MainModal';
 import { TextArea } from '../../components/TextArea';
 
 import { Container, Header, Main, ButtonContact, Footer, ContentModal } from './styles';
+import { InputMask } from '../../components/InputMask';
 
 const schema = yup.object().shape({
   name: yup.string().required('O nome é obrigatório'),
@@ -80,11 +81,13 @@ export function Bio() { // Gerar pagina estatica
             error={errors.email} 
             onClick={() => clearErrors('email')}
           />
-          <Input 
+
+          <InputMask 
+            mask='+99 (99) 99999-9999'
             placeholder='Celular' 
             {...register('phone')}
             error={errors.phone} 
-            onClick={() => clearErrors('phone')}  
+            onClick={() => clearErrors('phone')}   
           />
 
           <TextArea 
