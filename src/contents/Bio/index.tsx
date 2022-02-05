@@ -16,13 +16,14 @@ const schema = yup.object().shape({
   name: yup.string().required('O nome é obrigatório'),
   email: yup.string().email('Email inválido').required('O email é obrigatório'),
   phone: yup.string().required('O telefone é obrigatório'),
+  
   message: yup.string().required('A mensagem é obrigatória'),
 });
 
 export function Bio() { // Gerar pagina estatica 
   const modalRef = useRef<ModalHandles>(null);
 
-  const { register, handleSubmit, clearErrors, reset, formState: { errors } } = useForm({
+  const { register, handleSubmit, clearErrors, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -33,6 +34,8 @@ export function Bio() { // Gerar pagina estatica
 
   return (
     <Container>
+      <div className='circle'></div>
+      <div className='circle1'></div>
       <Header>
         <img 
           src='https://super.abril.com.br/wp-content/uploads/2018/07/5672f6af82bee174ca03d239thinkstockphotos-153831740.jpeg' 
@@ -105,6 +108,7 @@ export function Bio() { // Gerar pagina estatica
               background: '#E63462',
               transition: '0.2s ease-in-out',
             }}
+            loading={isSubmitting}
           />
         </ContentModal>
       </MainModal>

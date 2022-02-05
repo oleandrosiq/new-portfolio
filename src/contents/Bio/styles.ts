@@ -1,13 +1,42 @@
 import { styled } from '../../styles/styled';
 
 export const Container = styled('div', {
-  maxWidth: '50rem',
   width: '100%',
+
   margin: '0 auto',
+  position: 'relative',
+  overflow: 'hidden',
+
+  '> .circle': {
+    width: '30rem',
+    height: '30rem',
+    
+    borderRadius: '50%',
+    background: 'linear-gradient(95.16deg, #eb0c79 3.76%, #f6a415 83.3%)',
+    filter: 'blur(80px)',
+
+    position: 'absolute',
+    left: '-10rem',
+    top: '-10rem',
+  },
+
+  '> .circle1': {
+    width: '30rem',
+    height: '30rem',
+    
+    borderRadius: '50%',
+    background: 'linear-gradient(95.16deg, #0c14eb 3.76%, #15bcf6 83.3%)',
+    filter: 'blur(80px)',
+
+    position: 'absolute',
+    right: '-10rem',
+    bottom: '-10rem',
+  }
 });
 
 export const Header = styled('header', {
-  marginTop: '2rem',
+  maxWidth: '50rem',
+  margin: '2rem auto 0',
 
   display: 'flex',
   alignItems: 'center',
@@ -78,8 +107,11 @@ export const Main = styled('main', {
 
 export const ButtonContact = styled('button', {
   width: '100%',
+  maxWidth: '54rem',
   height: '5rem',
-  marginBottom: '5rem',
+
+  margin: '0 auto 5rem',
+  display: 'block',
 
   border: '0',
   borderRadius: '0.5rem',
