@@ -15,7 +15,6 @@ export default function MyBio() {
   );
 }
 
-// Gerar pagina estatica
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {},
