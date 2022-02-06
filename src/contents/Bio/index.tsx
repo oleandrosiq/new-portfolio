@@ -4,6 +4,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import emailjs from '@emailjs/browser';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { MainModal, ModalHandles } from '../../components/MainModal';
@@ -11,6 +13,14 @@ import { TextArea } from '../../components/TextArea';
 
 import { Container, Header, Main, ButtonContact, Footer, ContentModal } from './styles';
 import { InputMask } from '../../components/InputMask';
+import toast from 'react-hot-toast';
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
 
 const schema = yup.object().shape({
   name: yup.string().required('O nome é obrigatório'),
@@ -20,16 +30,63 @@ const schema = yup.object().shape({
   message: yup.string().required('A mensagem é obrigatória'),
 });
 
-export function Bio() { // Gerar pagina estatica 
+export function Bio() { 
   const modalRef = useRef<ModalHandles>(null);
+  const formRef = useRef(null);
 
   const { register, handleSubmit, clearErrors, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const handleSubmitForm: SubmitHandler<any> = useCallback((values) => {
-    console.log({ values });
-    modalRef.current?.closeModal();
+  const handleSubmitForm: SubmitHandler<FormData> = useCallback(async ({}) => {
+    try {
+      const formCurrent = formRef.current;
+      modalRef.current?.closeModal();
+
+      toast('Enviando mensagem...',
+        {
+          icon: '⌛',
+          style: {
+            fontSize: '1.5rem',
+            borderRadius: '10px',
+            background: 'linear-gradient(to bottom right, #048f95, #19b695)',
+            color: '#fff',
+          },
+        }
+      );
+
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID, 
+        process.env.NEXT_PUBLIC_TEMPLATE_ID, 
+        formCurrent, 
+        process.env.NEXT_PUBLIC_USER_ID
+      );
+    } catch (error) {
+      console.log(error);
+      toast('Falha ao enviar mensagem!',
+        {
+          icon: '❌',
+          style: {
+            fontSize: '1.5rem',
+            borderRadius: '10px',
+            background: 'var(--shape-hover)',
+            color: '#fff',
+          },
+        }
+      );
+    } finally {
+      toast('Mensagem enviada com sucesso!',
+        {
+          icon: '✅',
+          style: {
+            fontSize: '1.5rem',
+            borderRadius: '10px',
+            background: 'linear-gradient(to bottom right, #048f95, #19b695)',
+            color: '#fff',
+          },
+        }
+      );
+    }
   }, []);
 
   return (
@@ -69,12 +126,13 @@ export function Bio() { // Gerar pagina estatica
         ref={modalRef}
         titleModal='Entrar em contato'
       >
-        <ContentModal onSubmit={handleSubmit(handleSubmitForm)}>
+        <ContentModal ref={formRef} onSubmit={handleSubmit(handleSubmitForm)}>
           <Input 
             placeholder='Nome' 
             {...register('name')}
             error={errors.name} 
             onClick={() => clearErrors('name')}
+            name='name'
           />
 
           <Input 
@@ -83,6 +141,7 @@ export function Bio() { // Gerar pagina estatica
             {...register('email')}
             error={errors.email} 
             onClick={() => clearErrors('email')}
+            name='email'
           />
 
           <InputMask 
@@ -90,7 +149,8 @@ export function Bio() { // Gerar pagina estatica
             placeholder='Celular' 
             {...register('phone')}
             error={errors.phone} 
-            onClick={() => clearErrors('phone')}   
+            onClick={() => clearErrors('phone')}
+            name='phone'  
           />
 
           <TextArea 
@@ -98,6 +158,7 @@ export function Bio() { // Gerar pagina estatica
             {...register('message')}
             error={errors.message} 
             onClick={() => clearErrors('message')} 
+            name='message'
           />
 
           <Button 
