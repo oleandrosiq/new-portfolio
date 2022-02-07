@@ -83,7 +83,7 @@ export const TabsContent = styled(Tabs.Content, {
   overflow: 'hidden',
 
   '&[data-state="active"]': { 
-    animation: `${entry} 300ms ease-out`,
+    animation: `${entry} 350ms ease-out`,
   },
 });
 
