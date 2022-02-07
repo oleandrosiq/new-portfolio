@@ -9,7 +9,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {},
     redirect: {
       destination: '/me/bio',
-      permanent: true,
+      permanent: false,
     }
   }
 }
