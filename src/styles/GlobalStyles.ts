@@ -6,7 +6,7 @@ const Styles = globalCss({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
-    fontFamily: 'Arial, Helvetica, sans-serif',
+    fontFamily: 'DM Sans, sans-serif',
   },
 
   ':root': {
@@ -31,6 +31,7 @@ const Styles = globalCss({
     '--shape': '#21212b',
     '--shape-dark': '#1e1e29',
     '--shape-hover': '#272732',
+    '--line': '#373746',
   },
 
   body: {

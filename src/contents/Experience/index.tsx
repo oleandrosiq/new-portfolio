@@ -13,7 +13,7 @@ export function Experience() {
     <Container>
       <h1>Experiencia</h1>
 
-      <TabsRoot>
+      <TabsRoot defaultValue='Workfy'>
         <TabsList>
           <TabsTrigger value='Workfy'>Workfy</TabsTrigger>
           <TabsTrigger value='freela'>Freelancer</TabsTrigger>

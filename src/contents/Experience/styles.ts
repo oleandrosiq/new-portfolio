@@ -15,7 +15,7 @@ export const Container = styled('section', {
 
 export const TabsRoot = styled(Tabs.Root, {
   marginTop: '3rem',
-  borderLeft: '1px solid #373746',
+  borderLeft: '1px solid var(--line)',
   
   display: 'flex',
   gap: '2rem',
