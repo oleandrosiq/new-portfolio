@@ -4,8 +4,8 @@ import * as Tabs from '@radix-ui/react-tabs';
 export const Container = styled('section', {
   width: '100%',
   height: '30rem',
-  
-  maxWidth: '75rem',
+  minHeight: '40rem',
+  maxWidth: '90rem',
   marginTop: '4rem',
 
   '> h1': {
