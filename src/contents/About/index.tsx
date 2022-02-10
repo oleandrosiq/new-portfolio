@@ -14,6 +14,7 @@ import { FiDownloadCloud } from 'react-icons/fi';
 import { MdOutlineMailOutline } from 'react-icons/md';
 
 import { Container, WrapperImage, Image, Techs, Content, Socials, Buttons } from './styles';
+import { HoverCard } from '../../components/HoverCard';
 
 export function About() {
   return (
@@ -23,11 +24,21 @@ export function About() {
       <WrapperImage>
         <Image src='https://media.nature.com/lw800/magazine-assets/d41586-019-00653-5/d41586-019-00653-5_16459152.jpg' />
         <Techs>
-          <FaReact size={27} color='var(--blue)' />
-          <SiTypescript size={27} color='var(--blue)' />
-          <DiJavascript1 size={27} color='var(--blue)' />
-          <FaFigma size={27} color='var(--blue)' />
-          <FaNodeJs size={27} color='var(--blue)' />
+          <HoverCard trigger={<FaReact size={27} color='var(--blue)' />}>
+            <p>ReactJs</p>
+          </HoverCard>
+          <HoverCard trigger={<SiTypescript size={27} color='var(--blue)' />}>
+            <p>Typescript</p>
+          </HoverCard>
+          <HoverCard trigger={<DiJavascript1 size={27} color='var(--blue)' />}>
+            <p>Javascript</p>
+          </HoverCard>
+          <HoverCard trigger={<FaFigma size={27} color='var(--blue)' />}>
+            <p>Figma</p>
+          </HoverCard>
+          <HoverCard trigger={<FaNodeJs size={27} color='var(--blue)' />}>
+            <p>NodeJs</p>
+          </HoverCard>
         </Techs>
       </WrapperImage>
 

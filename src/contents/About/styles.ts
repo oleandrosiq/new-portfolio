@@ -3,7 +3,7 @@ import { styled } from '../../styles/styled';
 export const Container = styled('section', {
   width: '100%',
   maxWidth: '90rem',
-  minHeight: '40rem',
+  minHeight: '50rem',
 
   marginTop: '4rem',
   paddingTop: '2rem',
