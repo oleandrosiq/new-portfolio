@@ -11,7 +11,7 @@ import {
 export function Experience() {
   return (
     <Container>
-      <h1>Experiencia</h1>
+      <h1>Experiência</h1>
 
       <TabsRoot defaultValue='Workfy'>
         <TabsList>

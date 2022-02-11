@@ -3,10 +3,12 @@ import * as Tabs from '@radix-ui/react-tabs';
 
 export const Container = styled('section', {
   width: '100%',
-  height: '30rem',
-  minHeight: '50rem',
   maxWidth: '90rem',
-  marginTop: '4rem',
+  minHeight: '45rem',
+
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
 
   '> h1': {
     fontSize: '2.4rem',

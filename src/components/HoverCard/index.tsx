@@ -9,7 +9,7 @@ interface HoverCardProps {
 
 export function HoverCard({ trigger, children }: HoverCardProps) {
   return (
-    <HoverCardRoot openDelay={0.3}>
+    <HoverCardRoot openDelay={0.9} closeDelay={0.5}>
       <HoverCardTrigger>
         {trigger}
       </HoverCardTrigger>

@@ -27,7 +27,7 @@ const Styles = globalCss({
     '--border-light': '#3b3b46',
     '--background-button': '#3d3c50', 
     '--background-button-hover': '#47465a',
-    '--background': '#181820',
+    '--background': '#1c1b2d',
     '--shape': '#21212b',
     '--shape-dark': '#1e1e29',
     '--shape-hover': '#272732',

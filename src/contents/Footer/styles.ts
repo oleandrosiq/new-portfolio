@@ -5,6 +5,7 @@ export const Container = styled('footer', {
   height: '11.6rem',
   padding: '0 5rem',
   borderTop: '1px solid var(--line)',
+  background: '#1c1b2d',
 
   display: 'flex',
   alignItems: 'center',

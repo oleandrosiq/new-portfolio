@@ -10,6 +10,7 @@ export const Container = styled('section', {
   position: 'relative',
 
   display: 'flex',
+  alignItems: 'center',
   gap: '5rem',
 
   '> .circle': {
