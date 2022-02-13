@@ -29,7 +29,7 @@ export function Home() {
 
   return (
     <React.Fragment>
-      <title>in Dev...</title>
+      <title>oleandrosiq - Portfolio</title>
       <Landing scrollToView={scrollToView} />
       
       <ContainerCenter style={{ background: '#0b0b14' }}>

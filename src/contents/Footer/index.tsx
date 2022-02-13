@@ -19,7 +19,7 @@ function FooterBase({}, ref) {
         </span>
 
         <Instagram>
-          <span>
+          <span className='mobile'>
             <FiInstagram size={22} color='var(--white)' />
             <h5>Siga-me no Instagram</h5>
           </span>

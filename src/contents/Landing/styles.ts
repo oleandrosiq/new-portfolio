@@ -33,6 +33,17 @@ const entryBottom = keyframes({
   },
 });
 
+const entryTop = keyframes({
+  from: {
+    opacity: '0',
+    top: '-20rem',
+  },
+  to: {
+    opacity: '1',
+    top: '0',
+  },
+});
+
 const animationBackground = keyframes({
   from: {
     opacity: '0',
@@ -71,6 +82,7 @@ export const Header = styled('header', {
   '> h1': {
     fontSize: '3rem',
     animation: `${entryLeft} 350ms ease-out`,
+    cursor: 'pointer',
   },
 
   '> nav': {
@@ -103,6 +115,72 @@ export const Header = styled('header', {
       display: 'none',
     }
   },
+
+  '> button': {
+    border: 0,
+    background: 'none',
+
+    display: 'none',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  '@media (max-width: 600px)': {
+    padding: '2rem 4rem',
+    position: 'relative',
+
+    '> button': {
+      display: 'flex',
+    }
+  }
+});
+
+export const Menu = styled('div', { 
+  width: '100%',
+  padding: '2rem',
+
+  background: 'var(--blue)',
+  
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  
+  zIndex: '50',
+  animation: `${entryTop} 350ms ease-out`,
+
+  '> button': {
+    border: 0,
+    background: 'none',
+
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+    position: 'absolute',
+    top: '2rem',
+    right: '2rem',
+  }
+});
+
+export const ContentMenu = styled('div', {
+  width: '100%',
+
+  '> nav': {
+    width: '100%',
+    
+    'ul': {
+      listStyle: 'none',
+
+      display: 'flex',
+      alignItems: 'center',
+      gap: '2rem',
+      flexDirection: 'column',
+
+      '> li': {
+        fontSize: '2rem',
+      }
+    }
+  }
 });
 
 export const Wrapper = styled('main', {
@@ -139,7 +217,7 @@ export const Content = styled('div', {
 
   padding: '0 8rem',
   lineHeight: '4rem',
-  zIndex: '10',
+  // zIndex: '10',
 
   '> strong, > h2': {
     fontSize: '2.3rem',

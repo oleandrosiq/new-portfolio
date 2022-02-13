@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
 import { ElementsProps } from '../Home';
 
 import { 
@@ -7,6 +9,8 @@ import {
   Content,
   Wrapper,
   Buttons,
+  Menu,
+  ContentMenu,
 } from './styles';
 
 interface LandingProps {
@@ -14,20 +18,22 @@ interface LandingProps {
 }
 
 export function Landing({ scrollToView }: LandingProps) {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
   return (
     <Container> 
       <Header>
-        <h1>LS</h1>
+        <h1 onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}>LS</h1>
 
         <nav>
           <ul>
             <li>
               <a onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-                Home
+              Início
               </a>
             </li>
             <li>
-              <a onClick={() => scrollToView('about')}>About</a>
+              <a onClick={() => scrollToView('about')}>Sobre</a>
             </li>
             <li>
               <a onClick={() => scrollToView('experience')}>Experiência</a>
@@ -37,6 +43,48 @@ export function Landing({ scrollToView }: LandingProps) {
             </li>
           </ul>
         </nav>
+        
+        <button type='button' onClick={() => setMenuOpen(true)}>
+          <FiMenu size={30} color='var(--white)' />
+        </button>
+
+        { menuOpen && (
+          <Menu>
+            <button type='button' onClick={() => setMenuOpen(false)}>
+              <FiX size={30} color='var(--white)' />
+            </button>
+
+            <ContentMenu>
+              <nav>
+                <ul>
+                  <li>
+                    <a onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                      Início
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={() => {
+                      scrollToView('about');
+                      setMenuOpen(false);
+                    }}>Sobre</a>
+                  </li>
+                  <li>
+                    <a onClick={() => {
+                      scrollToView('experience');
+                      setMenuOpen(false);
+                    }}>Experiência</a>
+                  </li>
+                  <li>
+                    <a onClick={() => {
+                      scrollToView('projects');
+                      setMenuOpen(false);
+                    }}>Projetos</a>
+                  </li>
+                </ul>
+              </nav>
+            </ContentMenu>
+          </Menu>
+        ) }
       </Header>
       <Wrapper>
         <Content>

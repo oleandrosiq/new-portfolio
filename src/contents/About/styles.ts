@@ -122,6 +122,7 @@ export const Content = styled('main', {
     fontSize: '1.8rem',
     marginTop: '1.5rem',
     color: '#C4C4C4',
+    textAlign: 'justify',
   },
 
   '@media (max-width: 835px)': {

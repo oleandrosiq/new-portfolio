@@ -83,12 +83,20 @@ export const Instagram = styled('div', {
     }
   },
 
+  '> .mobile': {
+    display: 'none',
+  },
+
   '@media (max-width: 880px)': {
     flexDirection: 'column',
     gap: '1rem',
 
     '.icon-desktop': {
       display: 'none',
+    },
+
+    '> .mobile': {
+      display: 'unset',
     },
 
     '> span': {

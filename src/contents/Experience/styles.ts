@@ -155,6 +155,16 @@ export const ContentTab = styled('main', {
     '> strong': {
       color: 'var(--blue)',
     },
+
+    '> p.mobile': {
+      display: 'none',
+    },
+
+    '@media (max-width: 625px)': {
+      '> p.mobile': {
+        display: 'unset',
+      },
+    }
   },
 
   '> p': {
