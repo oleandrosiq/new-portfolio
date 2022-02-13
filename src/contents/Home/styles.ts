@@ -1,4 +1,15 @@
-import { styled } from '../../styles/styled';
+import { styled, keyframes } from '../../styles/styled';
+
+const entryBottom = keyframes({
+  from: {
+    opacity: '0',
+    top: '35%',
+  },
+  to: {
+    opacity: '1',
+    top: '50%',
+  },
+});
 
 export const ContainerCenter = styled('div', {
   width: '100%',
@@ -23,6 +34,8 @@ export const Socials = styled('div', {
 
   display: 'flex',
   flexDirection: 'column',
+
+  animation: `${entryBottom} 650ms ease-out`,
 
   '> p': {
     width: '100%',
@@ -61,5 +74,9 @@ export const Socials = styled('div', {
     '&:hover': {
       filter: 'brightness(1.2)',
     }
+  },
+
+  '@media (max-width: 600px)': {
+    display: 'none',
   }
 });

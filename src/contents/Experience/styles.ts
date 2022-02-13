@@ -6,28 +6,49 @@ export const Container = styled('section', {
   maxWidth: '90rem',
   minHeight: '45rem',
 
+  padding: '3rem 0',
+
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
 
   '> h1': {
     fontSize: '2.4rem',
-  }
+  },
 });
 
 export const TabsRoot = styled(Tabs.Root, {
   marginTop: '3rem',
-  borderLeft: '1px solid var(--line)',
   
   display: 'flex',
   gap: '2rem',
+
+  '@media (max-width: 1085px)': {
+    paddingRight: '7rem',
+  },
+
+  '@media (max-width: 935px)': {
+    flexDirection: 'column',
+  },
+
+  '@media (max-width: 600px)': {
+    paddingRight: 'unset',
+  },
 });
 
 export const TabsList = styled(Tabs.List, {
-  width: '20rem',
+  minWidth: '20rem',
 
   display: 'flex',
   flexDirection: 'column',
+
+  '@media (max-width: 935px)': {
+    flexDirection: 'unset',
+  },
+
+  '@media (max-width: 540px)': {
+    overflow: 'auto',
+  },
 });
 
 export const TabsTrigger = styled(Tabs.Trigger, {
@@ -35,7 +56,8 @@ export const TabsTrigger = styled(Tabs.Trigger, {
   height: '5.5rem',
 
   border: 0,
-  background: 'var(--background)',
+  borderLeft: '1px solid var(--line)',
+  background: '#00021f',
   zIndex: '1',
 
   fontSize: '1.8rem',
@@ -44,17 +66,22 @@ export const TabsTrigger = styled(Tabs.Trigger, {
   transition: 'all 0.2s ease-in-out',
 
   '&[data-state=active]': {
-    borderLeft: '2px solid var(--blue)',
-    background: 'var(--shape)',
+    borderLeft: '2px solid #2033fa',
+    background: '#00021f',
     color: 'var(--white)',
 
     '&:hover': {
-      background: 'var(--shape-hover)',
+      color: '#5061fc',
     }
   },
 
   '&:hover': {
-    borderLeft: '2px solid var(--blue)',
+    borderLeft: '2px solid #2033fa',
+    color: '#5061fc',
+  },
+
+  '@media (max-width: 540px)': {
+    minWidth: '20rem',
   },
 
   variants: {
@@ -62,10 +89,10 @@ export const TabsTrigger = styled(Tabs.Trigger, {
       loading: {
         cursor: 'not-allowed',
         pointerEvents: 'none',
-        background: '#0b0b13'
+        background: '#00021f'
       }
     }
-  }
+  },
 });
 
 const entry = keyframes({
@@ -97,6 +124,22 @@ export const TabsHeader = styled('header', {
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: '2rem',
+
+  '@media (max-width: 625px)': {
+    '> p.desktop': {
+      display: 'none',
+    },
+
+    '> p.mobile': {
+      display: 'unset',
+    },
+  },
+
+  '@media (max-width: 400px)': {
+    '> h1': {
+      fontSize: '1.8rem',
+    }
+  },
 });
 
 export const ContentTab = styled('main', {
@@ -104,11 +147,29 @@ export const ContentTab = styled('main', {
   flexDirection: 'column',
   gap: '2rem',
 
-  '> strong': {
-    color: 'var(--blue)',
+  '> span': {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1.6rem',
+
+    '> strong': {
+      color: 'var(--blue)',
+    },
   },
 
   '> p': {
     opacity: '0.8',
-  }
+  },
+
+  '@media (max-width: 400px)': {
+    '> span': {
+      '> strong': {
+        fontSize: '1.5rem',
+      },
+
+      '> p': {
+        fontSize: '1.4rem',
+      }
+    }
+  },
 });

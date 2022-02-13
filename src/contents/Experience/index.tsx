@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { 
   Container,
   TabsRoot,
@@ -8,9 +9,9 @@ import {
   ContentTab,
 } from './styles';
 
-export function Experience() {
+function ExperienceBase({}, ref) {
   return (
-    <Container>
+    <Container ref={ref}>
       <h1>Experiência</h1>
 
       <TabsRoot defaultValue='Workfy'>
@@ -22,10 +23,13 @@ export function Experience() {
         <TabsContent value='Workfy'>
           <TabsHeader>
             <h1>Desenvolvedor Front-End</h1>
-            <p>Junho 2021 - Atual</p>
+            <p className='desktop'>Junho 2021 - Atual</p>
           </TabsHeader>
           <ContentTab>
-            <strong>Adbat - Workfy</strong>
+            <span>
+              <strong>Adbat - Workfy</strong>
+              <p className='mobile'>Junho 2021 - Atual</p>
+            </span>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu purus risus. Ut rutrum sollicitudin purus in accumsan. Proin at mattis metus. Nullam sit amet mauris condimentum, volutpat augue in, mattis urna.
             </p>
@@ -34,10 +38,13 @@ export function Experience() {
         <TabsContent value='freela'>
           <TabsHeader>
               <h1>Desenvolvedor Full-stack</h1>
-              <p>Janeiro 2022 - Atual</p>
+              <p className='desktop'>Janeiro 2022 - Atual</p>
             </TabsHeader>
             <ContentTab>
-              <strong>Freelancer</strong>
+              <span>
+                <strong>Freelancer</strong>
+                <p className='mobile'>Janeiro 2022 - Atual</p>
+              </span>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu purus risus. Ut rutrum sollicitudin purus in accumsan. Proin at mattis metus. Nullam sit amet mauris condimentum, volutpat augue in, mattis urna.
               </p>
@@ -48,3 +55,5 @@ export function Experience() {
     </Container>
   );
 }
+
+export const Experience = forwardRef(ExperienceBase);

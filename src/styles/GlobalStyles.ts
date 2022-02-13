@@ -37,6 +37,11 @@ const Styles = globalCss({
   body: {
     background: 'var(--background)',
     color: 'var(--white)',
+    scrollBehavior: 'smooth',
+
+    '.about': {
+      scrollBehavior: 'smooth',
+    }
   },
 
   html: {

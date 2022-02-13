@@ -13,18 +13,16 @@ export const Container = styled('section', {
   alignItems: 'center',
   gap: '5rem',
 
-  '> .circle': {
-    width: '15rem',
-    height: '15rem',
-    
-    borderRadius: '50%',
-    background: 'linear-gradient(95.16deg, #0c14eb 3.76%, #15bcf6 83.3%)',
-    filter: 'blur(80px)',
+  '@media (max-width: 1050px)': {
+    paddingRight: '7rem',
+  },
 
-    position: 'absolute',
-    top: '7rem',
-    left: '0',
-    zIndex: '1',
+  '@media (max-width: 835px)': {
+    flexDirection: 'column'
+  },
+
+  '@media (max-width: 500px)': {
+    paddingRight: 'unset',
   },
 });
 
@@ -34,6 +32,37 @@ export const WrapperImage = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '2rem',
+
+  '&::after': {
+    content: '',
+    width: '15rem',
+    height: '15rem',
+    
+    borderRadius: '50%',
+    background: 'linear-gradient(95.16deg, #0c14eb 3.76%, #15bcf6 83.3%)',
+    filter: 'blur(80px)',
+
+    position: 'absolute',
+    top: '7rem',
+    left: '10rem',
+    zIndex: '1',
+
+    '@media (max-width: 680px)': {
+      left: '6rem',
+    },
+
+    '@media (max-width: 575px)': {
+      left: '4rem',
+    },
+  },
+
+  '@media (max-width: 450px)': {
+    width: '100%',
+  },
+
+  '@media (max-width: 390x)': {
+    width: '90vw',
+  }
 });
 
 export const Image = styled('img', {
@@ -52,7 +81,9 @@ export const Image = styled('img', {
 
   '&:hover': {
     transform: 'scale(1.05)',
-  } 
+  },
+
+  position: 'relative',
 });
 
 export const Techs = styled('div', {
@@ -91,6 +122,12 @@ export const Content = styled('main', {
     fontSize: '1.8rem',
     marginTop: '1.5rem',
     color: '#C4C4C4',
+  },
+
+  '@media (max-width: 835px)': {
+    margin: '0 auto',
+    maxWidth: '60rem',
+    paddingBottom: '4rem',
   }
 });
 
@@ -126,7 +163,7 @@ export const Buttons = styled('div', {
   alignItems: 'center',
   gap: '3rem',
 
-  '> button': {
+  '> a': {
     minWidth: '15rem',
     padding: '0.8rem 2.5rem',
 
@@ -143,6 +180,7 @@ export const Buttons = styled('div', {
     gap: '1rem',
 
     transition: 'all 300ms ease-in-out',
+    cursor: 'pointer',
 
     '&:hover': {
       filter: 'brightness(1.3)',
@@ -150,13 +188,13 @@ export const Buttons = styled('div', {
     }
   },
 
-  '> button:first-child': {
+  '> a:first-child': {
     borderImage: 'linear-gradient(to bottom right, #0c14eb, #15bcf6) 1',
     '-webkit-mask': 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
   },
 
-  '> button:last-child': {
-    borderImage: 'linear-gradient(to bottom right, #eb0c79, #f6a415) 1',
-    '-webkit-mask': 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
-  }
+  // '> button:last-child': {
+  //   borderImage: 'linear-gradient(to bottom right, #eb0c79, #f6a415) 1',
+  //   '-webkit-mask': 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
+  // }
 });

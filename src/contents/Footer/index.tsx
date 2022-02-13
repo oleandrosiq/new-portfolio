@@ -1,17 +1,17 @@
-import { useCallback } from 'react';
+import { forwardRef, useCallback } from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { BsArrowUpShort } from 'react-icons/bs';
 import Link from 'next/link';
 
 import { Container, Content, Instagram, ButtonBackTop } from './styles';
 
-export function Footer() {
+function FooterBase({}, ref) {
   const handleScrollTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <Container>
+    <Container ref={ref}>
       <Content>
         <span>
           <strong>LS</strong>
@@ -19,7 +19,11 @@ export function Footer() {
         </span>
 
         <Instagram>
-          <FiInstagram size={22} color='var(--white)' />
+          <span>
+            <FiInstagram size={22} color='var(--white)' />
+            <h5>Siga-me no Instagram</h5>
+          </span>
+          <FiInstagram className='icon-desktop' size={22} color='var(--white)' />
           <Link href='https://www.instagram.com/oleandrosiq/' passHref>
             <a target="_blank">
               oleandrosiq
@@ -38,3 +42,5 @@ export function Footer() {
     </Container>
   );
 }
+
+export const Footer = forwardRef(FooterBase);

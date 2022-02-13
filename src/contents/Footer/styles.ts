@@ -2,6 +2,9 @@ import { styled } from '../../styles/styled';
 
 export const Container = styled('footer', {
   width: '100%',
+  maxWidth: '150rem',
+  margin: '0 auto',
+
   height: '11.6rem',
   padding: '0 5rem',
   borderTop: '1px solid var(--line)',
@@ -10,6 +13,14 @@ export const Container = styled('footer', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+
+  '@media (max-width: 880px)': {
+    height: 'auto',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    borderTop: 0,
+  }
 });
 
 export const Content = styled('div', {
@@ -32,6 +43,14 @@ export const Content = styled('div', {
       fontSize: '1.6rem',
       opacity: 0.7,
     }
+  },
+
+  '@media (max-width: 880px)': {
+    flexDirection: 'column',
+    gap: '3.5rem',
+    paddingRight: 'unset',
+
+    padding: '3rem 0 0',
   }
 });
 
@@ -61,6 +80,23 @@ export const Instagram = styled('div', {
       '&::after': {
         background: 'var(--white)',
       }
+    }
+  },
+
+  '@media (max-width: 880px)': {
+    flexDirection: 'column',
+    gap: '1rem',
+
+    '.icon-desktop': {
+      display: 'none',
+    },
+
+    '> span': {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1.6rem',
+
+      opacity: 0.8,
     }
   }
 });
@@ -109,5 +145,11 @@ export const ButtonBackTop = styled('div', {
         opacity: 1,
       },
     }
+  },
+
+  '@media (max-width: 880px)': {
+    width: 'max-content',
+    borderLeft: 0,
+    margin: '5rem 0',
   }
 });

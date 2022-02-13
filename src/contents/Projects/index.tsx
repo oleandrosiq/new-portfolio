@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { forwardRef } from 'react';
 import { FiGithub, FiLink } from 'react-icons/fi';
 
 import { 
@@ -11,9 +12,9 @@ import {
   Buttons
 } from './styles';
 
-export function Projects() {
+function ProjectsBase({}, ref) {
   return (
-    <Container>
+    <Container ref={ref}>
       <h1>Projetos</h1>
 
       <ProjectsList>
@@ -28,14 +29,14 @@ export function Projects() {
             <Buttons>
               <Link href='' passHref>
                 <a target='_blank'>
-                  <FiLink size={24} color='var(--blue)' />
+                  <FiLink size={24} color='var(--white)' />
                   Visualizar
                 </a>
               </Link>
 
               <Link href='https://github.com/oleandrosiq' passHref>
                 <a target='_blank'>
-                  <FiGithub size={24} color='var(--blue)' />
+                  <FiGithub size={24} color='var(--white)' />
                   Código
                 </a>
               </Link>
@@ -53,14 +54,14 @@ export function Projects() {
             <Buttons>
               <Link href='' passHref>
                 <a target='_blank'>
-                  <FiLink size={24} color='var(--blue)' />
+                  <FiLink size={24} color='var(--white)' />
                   Visualizar
                 </a>
               </Link>
 
               <Link href='https://github.com/oleandrosiq' passHref>
                 <a target='_blank'>
-                  <FiGithub size={24} color='var(--blue)' />
+                  <FiGithub size={24} color='var(--white)' />
                   Código
                 </a>
               </Link>
@@ -78,14 +79,14 @@ export function Projects() {
             <Buttons>
               <Link href='' passHref>
                 <a target='_blank'>
-                  <FiLink size={24} color='var(--blue)' />
+                  <FiLink size={24} color='var(--white)' />
                   Visualizar
                 </a>
               </Link>
 
               <Link href='https://github.com/oleandrosiq' passHref>
                 <a target='_blank'>
-                  <FiGithub size={24} color='var(--blue)' />
+                  <FiGithub size={24} color='var(--white)' />
                   Código
                 </a>
               </Link>
@@ -103,14 +104,14 @@ export function Projects() {
             <Buttons>
               <Link href='' passHref>
                 <a target='_blank'>
-                  <FiLink size={24} color='var(--blue)' />
+                  <FiLink size={24} color='var(--white)' />
                   Visualizar
                 </a>
               </Link>
 
               <Link href='https://github.com/oleandrosiq' passHref>
                 <a target='_blank'>
-                  <FiGithub size={24} color='var(--blue)' />
+                  <FiGithub size={24} color='var(--white)' />
                   Código
                 </a>
               </Link>
@@ -121,3 +122,5 @@ export function Projects() {
     </Container>
   );
 }
+
+export const Projects = forwardRef(ProjectsBase);

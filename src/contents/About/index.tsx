@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Link from 'next/link';
 import { 
   FaGithub, 
@@ -9,16 +10,14 @@ import {
 } from 'react-icons/fa';
 import { SiTypescript } from 'react-icons/si';
 import { DiJavascript1 } from 'react-icons/di';
-
-import { FiDownloadCloud } from 'react-icons/fi';
 import { MdOutlineMailOutline } from 'react-icons/md';
 
-import { Container, WrapperImage, Image, Techs, Content, Socials, Buttons } from './styles';
 import { HoverCard } from '../../components/HoverCard';
+import { Container, WrapperImage, Image, Techs, Content, Socials, Buttons } from './styles';
 
-export function About() {
+function AboutBase({}, ref) {
   return (
-    <Container>
+    <Container ref={ref}>
       <div className='circle'></div>
 
       <WrapperImage>
@@ -69,16 +68,14 @@ export function About() {
         </Socials>
 
         <Buttons>
-          <button type='button'>
-            <FiDownloadCloud size={25} color='var(--white)' />
-            Curriculo
-          </button>
-          <button type='button'>
+          <a href='mailto:le_kts12@hotmail.com'>
             <MdOutlineMailOutline size={25} color='var(--white)' />
             Email
-          </button>
+          </a>
         </Buttons>
       </Content>
     </Container>
   );
 }
+
+export const About = forwardRef(AboutBase);

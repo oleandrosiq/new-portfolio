@@ -28,6 +28,10 @@ export const Projects = styled('div', {
 
 export const Project = styled('div', {
   width: '40rem',
+
+  '@media (max-width: 420px)': {
+    width: '95%',
+  },
 });
 
 export const BannerImage = styled('div', {
@@ -45,7 +49,15 @@ export const BannerImage = styled('div', {
     '> img': {
       objectPosition: 'center',
     }
-  }
+  },
+
+  '@media (max-width: 700px)': {
+    width: '30rem',
+  },
+
+  '@media (max-width: 400px)': {
+    width: '100%',
+  },
 });
 
 export const Content = styled('div', {
@@ -68,12 +80,11 @@ export const Content = styled('div', {
   '> strong': {
     fontSize: '1.4rem',
     color: 'var(--blue)',
-  }
+  },
 });
 
 export const Buttons = styled('div', {
   width: '100%',
-  height: '6rem',
 
   display: 'flex',
   alignItems: 'center',
@@ -104,6 +115,19 @@ export const Buttons = styled('div', {
     '&:hover': {
       filter: 'brightness(1.3)',
       transform: 'scale(1.04)',
-    }
+    },
+
+    '@media (max-width: 390px)': {
+      minWidth: '0.5rem',
+    },
+
+    '@media (max-width: 360px)': {
+      width: '100%',
+      justifyContent: 'center',
+    },
+  },
+
+  '@media (max-width: 360px)': {
+    flexDirection: 'column',
   },
 });
