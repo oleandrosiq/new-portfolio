@@ -8,7 +8,6 @@ export default function MyBio() {
     <React.Fragment>
       <Head>
         <title>Bio - oleandrosiq</title>
-        <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
       </Head>
       <Bio />
     </React.Fragment>
