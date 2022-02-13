@@ -102,6 +102,10 @@ export const Main = styled('main', {
     '&.github': {
       background: 'linear-gradient(to bottom right, #048f95, #19b695)',
     },
+
+    '&.portfolio': {
+      background: 'linear-gradient(to bottom right, #000e7e, #5061fc)',
+    }
   }
 });
 

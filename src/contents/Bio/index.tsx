@@ -115,6 +115,9 @@ export function Bio() {
         <a className='github' href='https://github.com/oleandrosiq' target='_blank'>
           Github
         </a>
+        <a className='portfolio' href='https://oleandrosiq.vercel.app' target='_blank'>
+          Portfólio
+        </a>
       </Main>
       <ButtonContact type='button' onClick={() => modalRef.current?.openModal()}>
         Entrar em contato
