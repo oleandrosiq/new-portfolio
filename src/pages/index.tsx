@@ -7,7 +7,11 @@ import { Socials } from '../contents/Home/styles';
 
 export default function Home() {
 	useEffect(() => {
-		alert('Portfolio is under development.');
+		const timeId = setTimeout(() => {
+			alert('Portfolio is under development.');
+		}, 3000);
+
+		return () => clearTimeout(timeId);
 	}, []);
 
 	return (
