@@ -9,7 +9,7 @@ export default function Home() {
 	useEffect(() => {
 		const timeId = setTimeout(() => {
 			alert('Portfolio is under development.');
-		}, 3000);
+		}, 1500);
 
 		return () => clearTimeout(timeId);
 	}, []);
